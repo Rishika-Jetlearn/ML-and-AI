@@ -19,3 +19,21 @@ print(pred_y)
 plt.scatter(x,y)
 plt.plot(x,pred_y)
 plt.show()
+#RMSE - Root Mean Squared Error sqrt( mean( (p – yi)^2 ))
+rmse=np.sqrt(np.mean((pred_y-y)**2))
+print(rmse)
+
+#with ml
+from sklearn.linear_model import LinearRegression
+lr=LinearRegression()
+reshaped_x=x.reshape(-1,1)
+lr.fit(reshaped_x,y)
+print("slope =",lr.coef_)
+print("intercept=",lr.intercept_)
+new_predidicted_y=lr.predict(reshaped_x)
+print(new_predidicted_y)
+
+#get rmse from model
+from sklearn.metrics import root_mean_squared_error
+print(root_mean_squared_error(y,new_predidicted_y))
+

@@ -36,4 +36,3 @@ print(new_predidicted_y)
 #get rmse from model
 from sklearn.metrics import root_mean_squared_error
 print(root_mean_squared_error(y,new_predidicted_y))
-

@@ -46,10 +46,11 @@ X=mms.fit_transform(X)
 
 X_train,X_test,y_train,y_test=train_test_split(X,y,train_size=0.8,random_state=76)
 
-from sklearn.tree import DecisionTreeClassifier
-dtc=DecisionTreeClassifier()
-trained=dtc.fit(X_train,y_train)
-tested=dtc.predict(X_test)
+from sklearn.ensemble import RandomForestClassifier
+classifier = RandomForestClassifier(n_estimators = 100)
+
+trained=classifier.fit(X_train,y_train)
+tested=classifier.predict(X_test)
 
 cr=classification_report(y_test,tested)
 print(cr)
